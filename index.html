@@ -1,14 +1,27 @@
 <!doctype html>
 <html>
     <head>
+		<meta http-equiv='cache-control' content='no-cache'>
+		<meta http-equiv='expires' content='0'>
+		<meta http-equiv='pragma' content='no-cache'>
         <meta charset="UTF-8" />
-        <title>hello phaser!</title>
+        <title>Space Shooter</title>
+		
+		<link href="css/style.css" rel="stylesheet">
+        <script src="lib/jquery-3.1.1.min.js"></script>
         <script src="lib/phaser.min.js"></script>
     </head>
+	
     <body>
+		<div id="game" class="center">
+		</div>
     </body>
+	
     <script src="js/main.js"></script>
-    <script src="js/player.js"></script>
+    <script src="js/states/main_menu.js"></script>
+    <script src="js/states/campaign.js"></script>
+	
+	<script src="js/player.js"></script>
     <script src="js/enemy.js"></script>
     <script src="js/projectile.js"></script>
     <script src="js/explosions.js"></script>
