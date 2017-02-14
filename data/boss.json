@@ -3,7 +3,12 @@
 		"name": "boss1",
 		"sprite": "enemy_boss_1",
 		"health": 5000,
+        "phases": [{
+            "pattern": [""],
+        },{
+            "pattern": [""],
+        },],
 		"pattern": ["singleFire1Shots","singleFire2Shots","singleFire3Shots"],
-		"collisionOffset": 8
+		"collisionOffset": 8,
 	}]
 }

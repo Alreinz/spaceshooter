@@ -58,6 +58,32 @@
 		}],
         "repeat": 2000
 	},{
+		"name": "circle10Repeater",
+		"projectile": "bulletRoundRed",
+		"delay": 1000,
+		"interval": 100,
+		"count": 1,
+		"patterns":[{
+			"burst": 10,
+            "offset": 36,
+			"speed": 150,
+			"targetPlayer": true
+		}],
+        "repeat": 2000
+	},{
+		"name": "circle18Repeater",
+		"projectile": "bulletRoundRed",
+		"delay": 1000,
+		"interval": 100,
+		"count": 1,
+		"patterns":[{
+			"burst": 18,
+            "offset": 20,
+			"speed": 150,
+			"targetPlayer": true
+		}],
+        "repeat": 2000
+	},{
 		"name": "triangleSpread",
 		"projectile": "bulletRoundRed",
 		"delay": 1000,
