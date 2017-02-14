@@ -3,11 +3,6 @@ var textStartGame;
 
 var stateMenu = {
 	
-	preload: function() {
-		game.load.image('title', 'res/placeholders/title.png');
-		game.load.audio('keysfx', 'res/sounds/key_press.wav');
-	},
-	
 	create: function() {
 		sfxKeyPress = game.add.audio('keysfx');
 		

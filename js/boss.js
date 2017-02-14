@@ -1,13 +1,9 @@
+var bossData;
 
 // Enemy properties
-var enemyBulletGroup;
-var enemies;
-var enemyData;
+var bossData;
 
-// Enemy bullet properties
-var enemyHealthMAX = 100;
-
-function enemyCreate(name, x, y, pathIndex, patternIndex) {
+function bossCreate(name) {
 	for( var i = 0; i < enemyData.length; i++ ) {
 		if( name == enemyData[i].name ) {
 			

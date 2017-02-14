@@ -21,53 +21,58 @@ function findProjectile(name) {
 	return null;
 }
 
-function createPattern(origin, pattern) {
-	var pattern = findPattern(pattern);
-	var projectileName = pattern.projectile;
-	var delay = pattern.delay;
-	var interval = pattern.interval;
-	var count = pattern.count;
-	var patterns = pattern.patterns;
+function createPattern(origin, patternInput) {
+    console.log(origin.inWorld);
+    if ( patternInput != "none" && origin.alive) {
+        var pattern = findPattern(patternInput);
+        var projectileName = pattern.projectile;
+        var delay = pattern.delay;
+        var interval = pattern.interval;
+        var count = pattern.count;
+        var patterns = pattern.patterns;
+        var repeat = pattern.repeat;
 
-	origin.shootTimer = game.time.create(false);
-	var patternIndex = 0;
-	for( var i = 0; i < count; i++, patternIndex++ ) {
-		if( patternIndex >= patterns.length ) {
-			patternIndex = 0;
-		}
-		
-		var netDelay = delay + (interval * (i + 1));
-		var offset = patterns[patternIndex].offset;
-		var halfOffset = offset * ((patterns[patternIndex].burst - 1) / 2);
-		var offsetInterval = 0;
-		
-		if( patterns[patternIndex].projectile) {
-			projectileName = patterns[patternIndex].projectile;
-		}else {
-			projectileName = pattern.projectile;
-		}
-		var duration = patterns[patternIndex].duration;
-		var onDeath = patterns[patternIndex].onDeath;
-		
-		// Set target for the projectiles
-		var target = {};
-		var targeted = patterns[patternIndex].targetPlayer;
-		if( patterns[patternIndex].target ) {
-			target = patterns[patternIndex].target;
-			target.alive = true;
-		}
-		if( targeted == true) {
-			target.x = player.x;
-			target.y = player.y;
-		}
-		var speed = patterns[patternIndex].speed;
-		var path = patterns[patternIndex].path;
-		for( var j = 0; j < patterns[patternIndex].burst; j++ ) {
-			origin.shootTimer.add(netDelay, createProjectile, this, origin, projectileName, target, offsetInterval - halfOffset, speed, duration, onDeath, path);
-			offsetInterval += offset;
-		}
-	}
-	origin.shootTimer.start();
+        origin.shootTimer = game.time.create(false);
+        var patternIndex = 0;
+        
+        for( var i = 0; i < count; i++, patternIndex++ ) {
+            if( patternIndex >= patterns.length ) {
+                patternIndex = 0;
+            }
+
+            var netDelay = delay + (interval * (i + 1));
+            var offset = patterns[patternIndex].offset;
+            var halfOffset = offset * ((patterns[patternIndex].burst - 1) / 2);
+            var offsetInterval = 0;
+
+            if( patterns[patternIndex].projectile) {
+                projectileName = patterns[patternIndex].projectile;
+            }else {
+                projectileName = pattern.projectile;
+            }
+            var duration = patterns[patternIndex].duration;
+            var onDeath = patterns[patternIndex].onDeath;
+
+            // Set target for the projectiles
+            var target = {};
+            var targeted = patterns[patternIndex].targetPlayer;
+            if( targeted == true) {
+                target = player;
+            }
+            var speed = patterns[patternIndex].speed;
+            var path = patterns[patternIndex].path;
+            for( var j = 0; j < patterns[patternIndex].burst; j++ ) {
+                origin.shootTimer.add(netDelay, createProjectile, this, origin, projectileName, target, offsetInterval - halfOffset, speed, duration, onDeath, path);
+                offsetInterval += offset;
+            }
+            
+        }
+        if(repeat) {
+            var repeatTime = repeat + (interval * count);
+            origin.shootTimer.add(repeatTime, createPattern, this, origin, patternInput);
+        }
+        origin.shootTimer.start();
+    }
 }
 
 function createProjectile(origin, name, target, offset, speed, duration, onDeath, path) {
@@ -80,7 +85,7 @@ function createProjectile(origin, name, target, offset, speed, duration, onDeath
 		var originy = origin.y;
 		var targety = 0;
 		var targety = 10000;
-		
+
 		if( target ) {
 			targetx = target.x;
 			targety = target.y;
@@ -88,7 +93,11 @@ function createProjectile(origin, name, target, offset, speed, duration, onDeath
 		
 		// True target
 		targetAngle = game.math.angleBetweenPoints(new Phaser.Point(originx, originy), new Phaser.Point(targetx, targety));
-		netAngle = targetAngle + game.math.degToRad(offset);
+        if(offset) {
+		  netAngle = targetAngle + game.math.degToRad(offset);
+        }else {
+            netAngle = targetAngle
+        }
 		
 		movex = speed * Math.cos(netAngle);
 		movey = speed * Math.sin(netAngle);

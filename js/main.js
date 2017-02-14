@@ -1,12 +1,16 @@
 
 
 const ID_GAME = "game";
-const GAME_WIDTH = 800;
+const GAME_WIDTH = 500;
 const GAME_HEIGHT = 600;
 
-const STATE_MAIN_MENU 	= 0x0001;
-const STATE_CAMPAIGN 	= 0x0002;
-const STATE_SETTINGS 	= 0x0003;
+const PLAYFIELD_WIDTH = 700;
+const PLAYFIELD_HEIHT = 500;
+
+const STATE_LOAD_ASSETS	= "load";
+const STATE_MAIN_MENU 	= "main_menu";
+const STATE_CAMPAIGN 	= "campaign";
+const STATE_SETTINGS 	= "settings";
 
 var game;
 var graphics;
@@ -22,12 +26,13 @@ var clickRight;
 var style = { font: "15px Courier", fill: "#FFF" };
 
 window.onload = function() {
-	game = new Phaser.Game(800, 600, Phaser.AUTO, ID_GAME);
+	game = new Phaser.Game(GAME_WIDTH, GAME_HEIGHT, Phaser.AUTO, ID_GAME);
 	
+	game.state.add(STATE_LOAD_ASSETS, stateLoadAssets);
 	game.state.add(STATE_MAIN_MENU, stateMenu);
 	game.state.add(STATE_CAMPAIGN, stateCampaign);
-	
-	game.state.start(STATE_MAIN_MENU);
+    
+	game.state.start(STATE_LOAD_ASSETS);
 	
 	math = game.math;
 	

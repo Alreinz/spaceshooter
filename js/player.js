@@ -4,7 +4,7 @@ var player;
 // Player properties
 var healthMAX = 10000;
 var health = healthMAX;
-var playerSpeed = 250;
+var playerSpeed = 350;
 var playerAcceleration = 100;
 
 // Player Bullet properties
@@ -15,7 +15,7 @@ var shootDelayMAX = 3;
 var shootDelay = 0;
 
 function playerCreate() {
-	player = game.add.sprite(400, 500, 'player');
+	player = game.add.sprite( GAME_WIDTH / 2, (GAME_HEIGHT / 2) + 200, 'player');
 	player.anchor.setTo(0.5, 0.5);
 	player.scale.setTo(1);
 	game.physics.enable(player, Phaser.Physics.ARCADE);
@@ -28,6 +28,27 @@ function playerCreate() {
 	bullets.setAll('anchor.y', 0.5);
 	bullets.setAll('outOfBoundsKill', true);
 	bullets.setAll('checkWorldBounds', true);	
+}
+
+function playerUpdate() {
+    //  Reset the player, then check for movement keys
+    player.body.velocity.setTo(0, 0);
+    var key = input.keyboard;
+    if ( (key.isDown(Phaser.KeyCode.LEFT) || key.isDown(Phaser.KeyCode.A)) && player.x > player.width ) {
+        player.body.velocity.x = -playerSpeed;
+    }
+    if ( (key.isDown(Phaser.KeyCode.RIGHT) || key.isDown(Phaser.KeyCode.D)) && player.x <= GAME_WIDTH - player.width ) {
+        player.body.velocity.x = playerSpeed;
+    }
+    if ( (key.isDown(Phaser.KeyCode.UP) || key.isDown(Phaser.KeyCode.W)) && player.y > player.height) {
+        player.body.velocity.y = -playerSpeed;
+    }
+    if ( (key.isDown(Phaser.KeyCode.DOWN) || key.isDown(Phaser.KeyCode.S)) && player.y <= GAME_HEIGHT - player.height + 10) {
+        player.body.velocity.y = playerSpeed;
+    }
+    if ( clickLeft.isDown || buttonShoot.isDown ) { 
+        playerShoot();
+    }
 }
 
 function playerShoot() {

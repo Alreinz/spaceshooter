@@ -22,7 +22,12 @@ function loadScript(script) {
 				for( var j = 1; j <= count; j++ ) {
 					events.add(time + (delay * j), enemyCreate, this, entity, x, y, path, pattern);
 				}
-			}
+			}else if( command[0] == "load_script") {
+                var time = parseInt(command[1]);
+                var script = game.cache.getText(String(command[2]));
+                
+                events.add(time, loadScript, this, script)
+            }
 		}
 	}
 	events.start();

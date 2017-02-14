@@ -1,0 +1,51 @@
+# level script example
+#	Commands:
+#		spawn - spawns an entity
+#		Parameters:
+#			time - spawn time in milliseconds of game time
+#			entity - id of entity to spawn
+#			x - x coordinates
+#			y - y coordinates
+#			count - number of entities to spawn
+#			delay - delay between each spawned entity
+#			path - path to follow of each entity (see entity data)
+#			pattern - bullet pattern to follow of each entity (see entity data)
+#       
+#       load_script - load a new script
+#       Parameters:
+#           time - time to load script
+#           script - script to load
+
+spawn 1250 grunt1 100 -10 1 0 1 1
+spawn 1500 grunt1 400 -10 1 0 3 1
+spawn 1750 grunt1 230 -10 1 0 2 1
+spawn 2000 grunt1 340 -10 1 0 1 1
+spawn 2250 grunt1 300 -10 1 0 1 1
+spawn 2500 grunt1 60  -10 1 0 0 1
+spawn 2750 grunt1 440 -10 1 0 2 1
+spawn 3000 grunt1 320 -10 1 0 1 1
+spawn 3250 grunt1 140 -10 1 0 3 1
+spawn 3500 grunt1 250 -10 1 0 0 1
+spawn 3750 grunt1 50 -10 1 0 0 1
+spawn 4000 grunt1 340 -10 1 0 1 1
+spawn 4250 grunt1 130 -10 1 0 0 1
+spawn 4500 grunt1 430 -10 1 0 2 1
+spawn 4750 grunt1 250 -10 1 0 1 1
+
+spawn 7000 grunt1 100 -10 1 0 3 1
+spawn 7250 grunt1 400 -10 1 0 3 1
+spawn 7500 grunt1 230 -10 1 0 2 1
+spawn 7750 grunt1 340 -10 1 0 1 1
+spawn 8000 grunt1 300 -10 1 0 3 1
+spawn 8250 grunt1 300 -10 1 0 1 1
+spawn 8500 grunt1 60  -10 1 0 2 1
+spawn 8750 grunt1 440 -10 1 0 2 1
+spawn 9000 grunt1 320 -10 1 0 1 1
+spawn 9250 grunt1 140 -10 1 0 3 1
+spawn 9500 grunt1 250 -10 1 0 1 1
+spawn 9750 grunt1 50 -10 1 0 3 1
+spawn 10000 grunt1 340 -10 1 0 1 1
+spawn 10250 grunt1 130 -10 1 0 2 1
+spawn 10500 grunt1 430 -10 1 0 2 1
+spawn 10750 grunt1 250 -10 1 0 1 1
+

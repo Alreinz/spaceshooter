@@ -2,17 +2,52 @@
 	"enemyData":[{
 		"name": "grunt1",
 		"sprite": "enemy_ship_1",
-		"health": 500,
+		"health": 250,
 		"path": [{
-			"waypoints": [[0,100],[100,400],[0,700]],
-			"type": 2,
+			"waypoints": [[0,1000]],
+			"type": 1,
 			"time": 500 
 		},{
-			"waypoints": [[0,100],[-100,400],[0,700]],
+			"waypoints": [[0,100],[0,150],[0,2000]],
+			"type": 1,
+			"time": 500 
+		},{
+			"waypoints": [[100,300],[0,1000]],
+			"type": 2,
+			"time": 500
+		},{
+			"waypoints": [[-100,300],[0,1000]],
 			"type": 2,
 			"time": 500
 		}],
-		"pattern": "delayedChaseBulletRed",
+		"pattern": ["singleFire1Shots","singleFire2Shots","singleFire3Shots"],
+		"collisionOffset": 8
+	},{
+		"name": "grunt2",
+		"sprite": "enemy_ship_2",
+		"health": 1000,
+		"path": [{
+			"waypoints": [[0,1000]],
+			"type": 1,
+			"time": 500 
+		},{
+			"waypoints": [[0,100],[-100,50],[100,50],[0,100],[-400,0]],
+			"type": 2,
+			"time": 750
+		},{
+			"waypoints": [[0,100],[100,50],[-100,50],[0,100],[400,0]],
+			"type": 2,
+			"time": 750
+		},{
+			"waypoints": [[0,100],[200,50],[-200,50],[0,100],[400,0]],
+			"type": 2,
+			"time": 750
+		},{
+			"waypoints": [[0,100],[-200,50],[200,50],[0,100],[-400,0]],
+			"type": 2,
+			"time": 750
+		}],
+		"pattern": ["doubleFire10Shots","doubleFire5ShotsRepeater"],
 		"collisionOffset": 8
 	}]
 }

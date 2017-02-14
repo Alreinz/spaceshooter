@@ -1,5 +1,63 @@
 {
 	"patternData": [{
+		"name": "singleFire1Shots",
+		"projectile": "bulletRoundRed",
+		"delay": 1000,
+		"interval": 500,
+		"count": 1,
+		"patterns":[{
+			"burst": 1,
+			"speed": 200,
+			"targetPlayer": true
+		}]
+	},{
+		"name": "singleFire2Shots",
+		"projectile": "bulletRoundRed",
+		"delay": 1000,
+		"interval": 500,
+		"count": 2,
+		"patterns":[{
+			"burst": 1,
+			"speed": 200,
+			"targetPlayer": true
+		}]
+	},{
+		"name": "singleFire3Shots",
+		"projectile": "bulletRoundRed",
+		"delay": 1000,
+		"interval": 500,
+		"count": 3,
+		"patterns":[{
+			"burst": 1,
+			"speed": 200,
+			"targetPlayer": true
+		}]
+	},{
+		"name": "doubleFire10Shots",
+		"projectile": "bulletRoundRed",
+		"delay": 1000,
+		"interval": 500,
+		"count": 10,
+		"patterns":[{
+			"burst": 2,
+            "offset": 5,
+			"speed": 150,
+			"targetPlayer": true
+		}]
+	},{
+		"name": "doubleFire5ShotsRepeater",
+		"projectile": "bulletRoundRed",
+		"delay": 1000,
+		"interval": 200,
+		"count": 5,
+		"patterns":[{
+			"burst": 2,
+            "offset": 6,
+			"speed": 150,
+			"targetPlayer": true
+		}],
+        "repeat": 2000
+	},{
 		"name": "triangleSpread",
 		"projectile": "bulletRoundRed",
 		"delay": 1000,
