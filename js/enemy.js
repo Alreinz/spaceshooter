@@ -4,9 +4,6 @@ var enemyBulletGroup;
 var enemies;
 var enemyData;
 
-// Enemy bullet properties
-var enemyHealthMAX = 100;
-
 function enemyCreate(name, x, y, pathIndex, patternIndex) {
 	for( var i = 0; i < enemyData.length; i++ ) {
 		if( name == enemyData[i].name ) {
