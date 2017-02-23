@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'Orbitron', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    src: local('Orbitron'), url(res/fonts/Orbitron/Orbitron-Regular.ttf) format('truetype');
+}
 
 body {
 	background-color: #000000;

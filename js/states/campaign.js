@@ -1,7 +1,7 @@
 
 var stateCampaign = {
 	
-	create: function () {
+	create: function () {        
 		graphics = game.add.graphics(0, 0);
 		graphics.lineStyle(2,  "0xFFFFFF", 100);
 		graphics.drawRect(0,  0, GAME_WIDTH, GAME_HEIGHT);

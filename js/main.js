@@ -23,7 +23,7 @@ var buttonShoot;
 var clickLeft;
 var clickRight;
 
-var style = { font: "15px Courier", fill: "#FFF" };
+var defaultFontStyle = { font: "15px Orbitron", fill: "#FFF" };
 
 window.onload = function() {
 	game = new Phaser.Game(GAME_WIDTH, GAME_HEIGHT, Phaser.AUTO, ID_GAME);
